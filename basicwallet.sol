@@ -133,7 +133,6 @@ contract Ether_Wallet{
     }  
 
     receive() external  payable {}
-    receive() external  payable {}
 }  
 
 
