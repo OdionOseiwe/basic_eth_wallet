@@ -83,7 +83,7 @@ contract Ether_Wallet{
         if(amount > 0){
             revert ZeroEth();
         }
-        bool sent = IERC20(tokenaddress).transfer(address(this), amount);
+        bool sent = IERC20(tokenaddress).transferFrom(msg.sender,address(this), amount);
         require(sent, "failed");
         emit receivedeth(msg.sender, amount);
     }
