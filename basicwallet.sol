@@ -51,7 +51,6 @@ contract Ether_Wallet{
     /// @dev the owner can send money to his address or others wih this function
     /// @param _amount takes in the amount of the owner wants to send 
     /// @param   _to in the address of the owner wants to send 
-
     function sendOut(uint256 _amount, address _to) external{
         require(_to != address(0));
         if(msg.sender != owner){
@@ -67,7 +66,6 @@ contract Ether_Wallet{
     }
 
     /// @dev withdraw lost eths
-
     function withdrawLostfunds() external  {
         if(msg.sender != owner){
             revert OwnerOnly();
@@ -120,7 +118,6 @@ contract Ether_Wallet{
     }
 
     /// @dev get lost tokens 
-
     function withdrawotherTokens(IERC20 otherAddress) external  {
         if(msg.sender != owner){
             revert OwnerOnly();
