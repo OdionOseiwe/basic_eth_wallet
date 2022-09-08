@@ -41,7 +41,7 @@ contract Ether_Wallet{
 
     function receiveth() external payable  {
         require(msg.sender != address(this));
-        if(msg.value > 0){
+        if(msg.value < 0){
             revert ZeroEth();
         }
         totalEth = totalEth + msg.value;
@@ -91,7 +91,7 @@ contract Ether_Wallet{
     /// @param _to takes in the address of the owner wants to send 
     /// @param tokenaddress takes in the address of the token contract 
     function sendOutTokens(IERC20 tokenaddress, uint amount , address _to) external {
-        require(msg.sender != address(this));
+        require(msg.sender != address(0));
         if(msg.sender != owner){
             revert OwnerOnly();
         }
@@ -131,5 +131,3 @@ contract Ether_Wallet{
 
     receive() external  payable {}
 }  
-
-
